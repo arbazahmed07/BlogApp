@@ -4,13 +4,13 @@ import {useAuth} from "@clerk/clerk-react"
 const UsersnAuthors = () => {
   const [users, setUsers] = useState([]);
   const {getToken}=useAuth();
-
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentuser"));
     const userId = currentUser ? currentUser._id : null; 
       console.log(userId); 
 
-    axios.get("http://localhost:3000/user-api/users",{
+    axios.get(`${BACKEND_URL}/user-api/users`,{
       headers: {
         Authorization: `Bearer ${userId}`,
       },
@@ -30,7 +30,7 @@ const UsersnAuthors = () => {
       // console.log("token", token);
   
       const response = await axios.put(
-        `http://localhost:3000/admin-api/admin/block-unblock/${id}`, 
+        `${BACKEND_URL}/admin-api/admin/block-unblock/${id}`, 
         { blocked: !blocked },
         {
           headers: {

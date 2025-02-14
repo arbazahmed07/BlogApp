@@ -24,7 +24,8 @@ authorApp.post("/article",expressAsyncHandler(async(req,res)=>{
 //read all articles
 authorApp.get('/articles',requireAuth({signInUrl:"unauthorized"}) ,expressAsyncHandler(async (req, res) => {
     //read all articles from db
-    const listOfArticles = await Article.find({ isArticleActive: true });
+   
+    const listOfArticles = await Article.find({ isArticleActive: true});
     res.status(200).send({ message: "articles", payload: listOfArticles })
 }))
 
@@ -63,6 +64,7 @@ authorApp.put('/articles/:articleId',expressAsyncHandler(async (req, res) => {
 authorApp.get('/articles/filter/:category',requireAuth({signInUrl:"unauthorized"}),expressAsyncHandler(async (req, res) => {
     //get category from req
     // console.log("hai")
+    // console.log("yooooooo")
     const category = req.params.category;
     // console.log(category)
     //read all articles from db

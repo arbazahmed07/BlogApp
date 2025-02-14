@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { createRoot } from 'react-dom/client';
-// import './index.css';
+import './index.css';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import RootLayout from './components/RootLayout.jsx';
 import Home from './components/common/Home.jsx';
