@@ -71,7 +71,7 @@ function ArticleByID() {
   }
 
   return (
-    <div className="container mx-auto p-6 bg-gray-900 text-gray-100 min-h-screen transition-all duration-300 ease-in-out">
+    <div className="container mx-auto p-6 bg-gray-900 text-gray-100 min-h-screen transition-all duration-300 ease-in-out overflow-hidden">
       {editArticleStatus === false ? (
         <div className="space-y-8 animate-fadeIn">
           <div className="rounded-lg bg-gray-800 p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
