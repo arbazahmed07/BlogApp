@@ -4,7 +4,8 @@ import { useUser } from '@clerk/clerk-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
+import handwriting from "../../assets/handwriting.jpg"
+import  book from "../../assets/bookspects.jpg"
 function Home() {
   const { currentUser, setCurrentUser } = useContext(userAutherContextObj);
   const { isSignedIn, user, isLoaded } = useUser();
@@ -152,8 +153,8 @@ function Home() {
                   className="bg-white/5 p-4 rounded-lg border border-white/10"
                 >
                   <img 
-                    src="src/assets/handwriting.jpg" 
-                    alt="Write and Publish" 
+                    src={handwriting}
+                    alt="✍️" 
                     className="rounded-md mb-4 opacity-80"
                   />
                   <h3 className="font-semibold text-lg text-white">Write & Publish</h3>
@@ -164,8 +165,8 @@ function Home() {
                   className="bg-white/5 p-4 rounded-lg border border-white/10"
                 >
                   <img 
-                    src="src/assets/bookspects.jpg" 
-                    alt="Connect with Readers" 
+                    src={book}
+                    alt="📖" 
                     className="rounded-md mb-4 opacity-80"
                   />
                   <h3 className="font-semibold text-lg text-white">Connect with Readers</h3>
