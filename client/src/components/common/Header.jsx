@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useClerk, useUser } from '@clerk/clerk-react';
 import { userAutherContextObj } from '../../contexts/userAutherContext';
-
+import logo from "../../assets/logo.jpg"
 function Header() {
   const [isExpanded, setIsExpanded] = useState(false);
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function Header() {
             <div className="flex-shrink-0 flex items-center">
               <NavLink to="/" className="flex items-center">
                 <span className="text-2xl font-bold text-white">
-                  <img src="/src/assets/logo.jpg" alt="" style={{width:"50px"}}/>
+                  <img src={logo} alt="" style={{width:"50px"}}/>
                 </span>
               </NavLink>
             </div>
