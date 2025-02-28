@@ -7,15 +7,15 @@ function AdminProfile() {
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black pt-16">
       <div className="container mx-auto px-4">
         {/* Navigation Header */}
-        <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 mb-8">
-          <h1 className="text-2xl font-bold text-white mb-6 flex items-center">
+        {/* <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6 mb-8"> */}
+          {/* <h1 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Shield className="w-6 h-6 mr-2 text-primary-400" />
             Admin Dashboard
-          </h1>
+          </h1> */}
           
-          <nav>
-            <ul className="flex flex-wrap gap-4">
-              <li>
+          {/* <nav> */}
+            {/* <ul className="flex flex-wrap gap-4"> */}
+              {/* <li>
                 <NavLink 
                   to="UsersnAuthors" 
                   className={({ isActive }) => `
@@ -29,7 +29,7 @@ function AdminProfile() {
                   <Users className="w-5 h-5" />
                   Users & Authors
                 </NavLink>
-              </li>
+              </li> */}
               {/* Commented nav item styled for future use
               <li>
                 <NavLink 
@@ -47,9 +47,9 @@ function AdminProfile() {
                 </NavLink>
               </li>
               */}
-            </ul>
-          </nav>
-        </div>
+            {/* </ul>
+          </nav> */}
+        {/* </div> */}
 
         {/* Outlet Container */}
         <div className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl p-6">

@@ -44,7 +44,7 @@ function Footer() {
       </div>
       
       <div className="text-center mt-4 pt-3 border-top border-secondary">
-        <p className="mb-0">&copy; 2025 BLOG APP, All Rights Reserved</p>
+        <p className="mb-0">&copy; 2025 BLOGVERSE, All Rights Reserved</p>
       </div>
     </footer>
   );
