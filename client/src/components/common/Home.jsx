@@ -13,46 +13,80 @@ function Home() {
   const navigate = useNavigate();
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   // Existing logic for onSelectRole remains the same
+  // async function onSelectRole(e) {
+  //   setError('');
+  //   const selectedRole = e.target.value;
+  //   currentUser.role = selectedRole;
+  //   let res = null;
+  //   try {
+  //     if (selectedRole === 'author') {
+  //       res = await axios.post(`${BACKEND_URL}/author-api/author`, currentUser);
+  //       let { message, payload } = res.data;
+  //       if (message === 'author') {
+  //         setCurrentUser({ ...currentUser, ...payload });
+  //         localStorage.setItem("currentuser", JSON.stringify(payload));
+  //       } else {
+  //         setError(message);
+  //       }
+  //     }
+  //     if (selectedRole === 'user') {
+  //       res = await axios.post(`${BACKEND_URL}/user-api/user`, currentUser);
+  //       let { message, payload } = res.data;
+  //       if (message === 'user') {
+  //         setCurrentUser({ ...currentUser, ...payload });
+  //         localStorage.setItem("currentuser", JSON.stringify(payload));
+  //       } else {
+  //         setError(message);
+  //       }
+  //     }
+  //     if (selectedRole === 'admin') {
+  //       res = await axios.post(`${BACKEND_URL}/admin-api/admin`, currentUser);
+  //       let { message, payload } = res.data;
+  //       if (message === 'admin') {
+  //         setCurrentUser({ ...currentUser, ...payload });
+  //         localStorage.setItem("currentuser", JSON.stringify(payload));
+  //       } else {
+  //         setError(message);
+  //       }
+  //     }
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // }
   async function onSelectRole(e) {
     setError('');
     const selectedRole = e.target.value;
+    const allowedAdminEmail = "arbazahmed1729@gmail.com"; // Your email
+  
+    if (selectedRole === 'admin' && currentUser.email !== allowedAdminEmail) {
+      setError("Only the authorized user can be an admin.");
+      return;
+    }
+  
     currentUser.role = selectedRole;
     let res = null;
+  
     try {
       if (selectedRole === 'author') {
         res = await axios.post(`${BACKEND_URL}/author-api/author`, currentUser);
-        let { message, payload } = res.data;
-        if (message === 'author') {
-          setCurrentUser({ ...currentUser, ...payload });
-          localStorage.setItem("currentuser", JSON.stringify(payload));
-        } else {
-          setError(message);
-        }
-      }
-      if (selectedRole === 'user') {
+      } else if (selectedRole === 'user') {
         res = await axios.post(`${BACKEND_URL}/user-api/user`, currentUser);
-        let { message, payload } = res.data;
-        if (message === 'user') {
-          setCurrentUser({ ...currentUser, ...payload });
-          localStorage.setItem("currentuser", JSON.stringify(payload));
-        } else {
-          setError(message);
-        }
-      }
-      if (selectedRole === 'admin') {
+      } else if (selectedRole === 'admin') {
         res = await axios.post(`${BACKEND_URL}/admin-api/admin`, currentUser);
-        let { message, payload } = res.data;
-        if (message === 'admin') {
-          setCurrentUser({ ...currentUser, ...payload });
-          localStorage.setItem("currentuser", JSON.stringify(payload));
-        } else {
-          setError(message);
-        }
+      }
+  
+      let { message, payload } = res.data;
+      if (message === selectedRole) {
+        setCurrentUser({ ...currentUser, ...payload });
+        localStorage.setItem("currentuser", JSON.stringify(payload));
+      } else {
+        setError(message);
       }
     } catch (err) {
       setError(err.message);
     }
   }
+  
 
   useEffect(() => {
     if (isSignedIn === true) {
