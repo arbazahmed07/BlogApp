@@ -8,6 +8,7 @@ const cors=require("cors")
 require("dotenv").config();  //process .env
 app.use(cors());
 
+
 const port=process.env.PORT || 4000
 
 //db connection
